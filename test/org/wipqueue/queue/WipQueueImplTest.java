@@ -101,7 +101,7 @@ public class WipQueueImplTest {
     }
 
 
-    private class ConsumerStub implements WipConsumer<String, String> {
+    public static class ConsumerStub implements WipConsumer<String, String> {
         public final List<String> received = new ArrayList<String>();
         private CountDownLatch isBusy = new CountDownLatch(0);
         private CountDownLatch waitFor = new CountDownLatch(0);
@@ -129,7 +129,7 @@ public class WipQueueImplTest {
         }
     }
 
-    private class LockStepConsumer implements WipConsumer<String, String> {
+    public static class LockStepConsumer implements WipConsumer<String, String> {
         CountDownLatch waitFor = new CountDownLatch(1);
         public CountDownLatch startedConsuming = new CountDownLatch(1);
         Set<Thread> seenThreads = new HashSet<Thread>();
@@ -161,7 +161,7 @@ public class WipQueueImplTest {
         }
     }
 
-    private class ConsumerFactoryStub implements WipConsumerFactory {
+    public static class ConsumerFactoryStub implements WipConsumerFactory {
         private final WipConsumer<String, String> consumer;
         private int consumerCount = 0;
 

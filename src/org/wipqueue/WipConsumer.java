@@ -15,5 +15,5 @@ public interface WipConsumer<T, R> {
      * @param workItem the item of work to perform
      * @return the result of processing the workItem
      */
-    R consume(T workItem);
+    R consume(T workItem) throws Exception;
 }

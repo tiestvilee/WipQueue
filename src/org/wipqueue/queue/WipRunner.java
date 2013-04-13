@@ -1,5 +1,7 @@
 package org.wipqueue.queue;
 
+import org.wipqueue.utils.SynchronisationPoint;
+
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -46,5 +48,10 @@ public abstract class WipRunner implements Runnable {
 
     public boolean isFinished() {
         return finished.hasBeenReached();
+    }
+
+    public void kill() {
+        whoToInterrupt.stop();
+        finished.reached();
     }
 }

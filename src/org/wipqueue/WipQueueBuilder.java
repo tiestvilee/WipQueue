@@ -23,6 +23,7 @@ public class WipQueueBuilder<T,R> {
     private WipQueueThreadFactory<T, R> wipQueueThreadFactory;
     private int minConsumers;
     private int maxConsumers;
+    private int timeout = -1;
 
 
     WipQueueBuilder(WipConsumerFactory<T,R> consumerFactory) {

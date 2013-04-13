@@ -1,4 +1,4 @@
-package org.wipqueue.queue;
+package org.wipqueue.utils;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
@@ -15,8 +15,8 @@ public class SynchronisationPoint {
         latch.await();
     }
 
-    public void await(long time, TimeUnit units) throws InterruptedException {
-        latch.await(time, units);
+    public boolean await(long time, TimeUnit units) throws InterruptedException {
+        return latch.await(time, units);
     }
 
     public void reached() {
